@@ -4175,6 +4175,21 @@ body.gallery-lightbox-open {
 }
 
 @media (max-width: 991px) {
+    body.nexgen-site.ng-mobile-menu-open {
+        overflow: hidden;
+        touch-action: none;
+    }
+
+    .nexgen-site .site-header,
+    .nexgen-site .navigation,
+    .nexgen-site .navigation > .container {
+        overflow: visible !important;
+    }
+
+    .nexgen-site .site-header {
+        z-index: 10000;
+    }
+
     .nexgen-site .large-padding {
         padding-top: 78px;
         padding-bottom: 78px;
@@ -4195,7 +4210,9 @@ body.gallery-lightbox-open {
 
     .nexgen-site .navigation-header {
         position: relative;
+        z-index: 2;
         min-height: 70px;
+        align-items: center;
     }
 
     .nexgen-site .navigation-button-toggler {
@@ -4208,10 +4225,47 @@ body.gallery-lightbox-open {
     }
 
     .nexgen-site .navigation-body {
+        top: 0;
+        bottom: 0;
+        left: -110%;
+        z-index: 20001;
+        width: min(88vw, 360px);
+        max-width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        padding-bottom: max(20px, env(safe-area-inset-bottom));
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior: contain;
         background: #fff;
+        box-shadow: 18px 0 50px rgba(15, 23, 42, .2);
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .nexgen-site .navigation-body.is-visible {
+        left: 0;
+    }
+
+    .nexgen-site .navigation-body.is-invisible {
+        left: -110%;
+    }
+
+    .nexgen-site .navigation-menu,
+    .nexgen-site .navigation-item,
+    .nexgen-site .navigation-dropdown-item {
+        float: none;
+        display: block;
+    }
+
+    .nexgen-site .overlay-panel.is-visible {
+        z-index: 20000;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
     }
 
     .nexgen-site .navigation-link {
+        width: 100%;
         padding: 14px 20px;
         font-size: 14px;
     }
@@ -4233,10 +4287,24 @@ body.gallery-lightbox-open {
     }
 
     .nexgen-site .navigation-dropdown {
+        position: static;
+        right: auto !important;
+        left: auto !important;
+        width: 100%;
+        max-width: 100%;
+        max-height: 0;
         min-width: 0;
+        overflow: hidden;
         border: 0;
         border-radius: 0;
         box-shadow: none;
+        transition: none !important;
+    }
+
+    .nexgen-site .navigation-dropdown.is-visible {
+        max-height: none;
+        display: flow-root;
+        overflow: visible;
     }
 
     .nexgen-site .navigation-dropdown .crumina-icon:empty {
@@ -4244,8 +4312,11 @@ body.gallery-lightbox-open {
     }
 
     .nexgen-site .navigation-dropdown-link {
+        width: 100%;
         min-height: 42px;
         padding: 10px 24px !important;
+        white-space: normal;
+        overflow-wrap: anywhere;
     }
 
     .nexgen-site .menu-item-info {

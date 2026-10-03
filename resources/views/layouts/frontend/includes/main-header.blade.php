@@ -99,7 +99,7 @@
 
             </div>
             <button type="button" class="ng-mobile-menu-trigger" aria-label="Open navigation menu"
-                onclick="document.querySelector('.navigation-button-toggler').click()">
+                aria-controls="mobile-navigation" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
             <!-- /MAIN HEADER RESPONSIVE BUTTON-OPEN -->
@@ -108,7 +108,7 @@
         <!-- /MAIN HEADER RESPONSIVE -->
 
         <!-- MAIN HEADER BODY -->
-        <div class="navigation-body">
+        <div class="navigation-body" id="mobile-navigation">
 
             <!-- MAIN HEADER BODY HEADER -->
             <div class="navigation-body-header">

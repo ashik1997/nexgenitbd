@@ -95,3 +95,80 @@
         syncStickyHeader();
     }());
 </script>
+
+<script>
+    (function () {
+        var mobileBreakpoint = window.matchMedia('(max-width: 991px)');
+        var header = document.getElementById('site-header');
+        var trigger = header ? header.querySelector('.ng-mobile-menu-trigger') : null;
+        var menu = document.getElementById('mobile-navigation');
+
+        if (!header || !trigger || !menu) {
+            return;
+        }
+
+        function syncMobileMenuState() {
+            var isOpen = mobileBreakpoint.matches && menu.classList.contains('is-visible');
+
+            trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            trigger.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+            document.body.classList.toggle('ng-mobile-menu-open', isOpen);
+        }
+
+        function setMobileMenuOpen(isOpen) {
+            if (!mobileBreakpoint.matches) {
+                return;
+            }
+
+            var overlay = header.querySelector('.overlay-panel');
+
+            menu.classList.remove('is-invisible');
+            menu.classList.toggle('is-visible', isOpen);
+
+            if (overlay) {
+                overlay.classList.remove('is-invisible');
+                overlay.classList.toggle('is-visible', isOpen);
+            }
+
+            window.requestAnimationFrame(syncMobileMenuState);
+        }
+
+        function toggleMobileMenu() {
+            setMobileMenuOpen(!menu.classList.contains('is-visible'));
+        }
+
+        trigger.addEventListener('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            toggleMobileMenu();
+        });
+
+        menu.querySelector('.navigation-body-close-button').addEventListener('click', function (event) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            setMobileMenuOpen(false);
+        }, true);
+
+        header.addEventListener('click', function (event) {
+            if (event.target.classList.contains('overlay-panel')) {
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                setMobileMenuOpen(false);
+            }
+        }, true);
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && menu.classList.contains('is-visible')) {
+                setMobileMenuOpen(false);
+            }
+        });
+
+        window.addEventListener('resize', syncMobileMenuState, { passive: true });
+        new MutationObserver(syncMobileMenuState).observe(menu, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
+
+        syncMobileMenuState();
+    }());
+</script>

@@ -35,7 +35,7 @@
 	<link href="{{ asset('assets/frontend/css/plugins/navigation.css') }}" rel="stylesheet">
 	<!-- main styles -->
 	<link rel="stylesheet" href="{{ asset('assets/frontend/css/main.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/professional.css') }}?v=18">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/professional.css') }}?v=21">
 	<!-- theme font -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/theme-font.min.css') }}">
 	<!-- styles for RTL -->
