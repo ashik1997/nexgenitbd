@@ -137,7 +137,7 @@ if (!function_exists('random_code')){
     }
 
     function get_client_user_agent() {
-        return  $_SERVER['HTTP_USER_AGENT'];
+        return $_SERVER['HTTP_USER_AGENT'] ?? '';
     }
 
     function get_client_ip() {

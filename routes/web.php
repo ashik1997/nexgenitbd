@@ -46,7 +46,7 @@ use Illuminate\Support\Facades\Session;
 
 // api
 Route::prefix('api/order')->group(function () {
-    Route::get('/bulksms', [App\Http\Controllers\AllOrderController::class, 'order_bulksms_api']);
+    Route::get('/bulksms', [BulkSmsOrderController::class, 'order_bulksms_api']);
     Route::get('/domain', [DomainOrderController::class, 'order_domain_api']);
     Route::get('/graphic', [GraphicOrderController::class, 'order_graphic_api']);
     Route::get('/hosting', [HostingPackageOrderController::class, 'order_hosting_api']);
