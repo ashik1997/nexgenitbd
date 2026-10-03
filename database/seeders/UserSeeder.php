@@ -16,24 +16,24 @@ class UserSeeder extends Seeder
     public function run()
     {
         $user = new User();
-        $user->name = 'Mr Admin';
-        $user->phone = '01111111111';
+        $user->name = 'Mr Ashikur Rahman';
+        $user->phone = '01731002123';
         $user->email = 'admin@gmail.com';
         $user->address = 'admin -- address';
         $user->password = Hash::make('password');
         $user->save();
         $user->assignRole('Admin');
 
-        for ($i = 1; $i <= 10; $i++) {
-            $user = new User();
-            $user->name = 'User '.$i;
-            $user->phone = '0123456789'.$i;
-            $user->email = 'user'.$i.'@gmail.com';
-            $user->address = 'user '.$i.' address';
-            $user->password = Hash::make('password');
-            $user->save();
+        // for ($i = 1; $i <= 10; $i++) {
+        //     $user = new User();
+        //     $user->name = 'User '.$i;
+        //     $user->phone = '0123456789'.$i;
+        //     $user->email = 'user'.$i.'@gmail.com';
+        //     $user->address = 'user '.$i.' address';
+        //     $user->password = Hash::make('password');
+        //     $user->save();
 
-            $user->assignRole('Admin');
-        }
+        //     $user->assignRole('Admin');
+        // }
     }
 }

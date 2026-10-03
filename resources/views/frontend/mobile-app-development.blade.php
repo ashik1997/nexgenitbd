@@ -39,32 +39,37 @@
     </div>
 </section>
 
-@if($website_voip_dialers->isNotEmpty())
 <section class="service-detail-section">
     <div class="container">
         <div class="premium-section-heading">
             <span class="section-kicker">Mobile app capabilities</span>
             <h2>Built around your users, workflow, and growth plan.</h2>
-            <p>Our service content remains manageable from your existing admin panel and is presented in a clearer, more engaging format.</p>
+            <p>From a focused MVP to a mature mobile product, we shape the right delivery plan for your business.</p>
         </div>
         <div class="service-detail-list">
-            @foreach ($website_voip_dialers as $website_voip_dialer)
-                <article class="service-detail-card {{ $loop->even ? 'service-detail-card-reverse' : '' }}">
-                    <div class="service-detail-content">
-                        <span class="service-detail-number">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
-                        <h3>{{ $website_voip_dialer->title }}</h3>
-                        <div class="premium-rich-text">{!! $website_voip_dialer->description !!}</div>
-                    </div>
-                    <div class="service-detail-image">
-                        <img loading="lazy" src="{{ asset($website_voip_dialer->image ?: 'assets/frontend/img/services/mobile-app.jpg') }}" alt="{{ $website_voip_dialer->title }}">
-                    </div>
-                </article>
-            @endforeach
+            <article class="service-detail-card">
+                <div class="service-detail-content">
+                    <span class="service-detail-number">01</span>
+                    <h3>Native and cross-platform development</h3>
+                    <div class="premium-rich-text"><p>Build reliable Android, iOS, and cross-platform applications with an architecture designed for growth.</p></div>
+                </div>
+                <div class="service-detail-image">
+                    <img loading="lazy" src="{{ asset('assets/frontend/img/services/mobile-app.jpg') }}" alt="Native and cross-platform mobile app development">
+                </div>
+            </article>
+            <article class="service-detail-card service-detail-card-reverse">
+                <div class="service-detail-content">
+                    <span class="service-detail-number">02</span>
+                    <h3>App maintenance and optimization</h3>
+                    <div class="premium-rich-text"><p>Improve performance, add features, strengthen security, and keep existing mobile products dependable.</p></div>
+                </div>
+                <div class="service-detail-image">
+                    <img loading="lazy" src="{{ asset('assets/frontend/img/services/software-consultation.jpg') }}" alt="Mobile app maintenance and optimization">
+                </div>
+            </article>
         </div>
     </div>
 </section>
-@endif
-
 <section id="mobile-app-inquiry" class="premium-form-section">
     <div class="container">
         <div class="premium-form-layout">

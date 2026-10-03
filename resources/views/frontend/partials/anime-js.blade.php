@@ -29,7 +29,7 @@
                         <img loading="lazy" src="{{ asset('assets/frontend/img/services/cloud-devops.jpg') }}" alt="Cloud and DevOps">
                     </div>
                     <div class="info-box-content">
-                        <h5 class="info-box-title font-weight-normal"><a href="{{ route('frontend.voipHostingDomain') }}">Cloud & DevOps</a></h5>
+                        <h5 class="info-box-title font-weight-normal"><a href="{{ route('frontend.cloudAutomation') }}">Cloud & DevOps</a></h5>
                         <p>Scalable infrastructure, automated deployment, monitoring, and cloud optimization.</p>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                         <img loading="lazy" src="{{ asset('assets/frontend/img/services/api-integration.jpg') }}" alt="API and system integration">
                     </div>
                     <div class="info-box-content">
-                        <h5 class="info-box-title font-weight-normal"><a href="{{ route('frontend.voipHostingDomain') }}">API & System Integration</a></h5>
+                        <h5 class="info-box-title font-weight-normal"><a href="{{ route('frontend.cloudAutomation') }}">API & System Integration</a></h5>
                         <p>Connect business tools, payment systems, CRMs, ERPs, and third-party platforms.</p>
                     </div>
                 </div>

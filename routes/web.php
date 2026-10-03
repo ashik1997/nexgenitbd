@@ -20,12 +20,6 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VisitorActivityController;
-use App\Http\Controllers\VoipDialerController;
-use App\Http\Controllers\VoipDialerOrderController;
-use App\Http\Controllers\VoipHostingDomainController;
-use App\Http\Controllers\VoipHostingDomainOrderController;
-use App\Http\Controllers\VpnPackageController;
-use App\Http\Controllers\VpnPackageOrderController;
 use App\Http\Controllers\WebDesignController;
 use App\Http\Controllers\WebDesignOrderController;
 use App\Http\Controllers\WebDesignPackageController;
@@ -56,9 +50,6 @@ Route::prefix('api/order')->group(function () {
     Route::get('/domain', [DomainOrderController::class, 'order_domain_api']);
     Route::get('/graphic', [GraphicOrderController::class, 'order_graphic_api']);
     Route::get('/hosting', [HostingPackageOrderController::class, 'order_hosting_api']);
-    Route::get('/voip_dialer', [VoipDialerOrderController::class, 'order_voip_dialer_api']);
-    Route::get('/voip_hosting_domain', [VoipHostingDomainOrderController::class, 'order_voip_hosting_domain_api']);
-    Route::get('/vpn_package', [VpnPackageOrderController::class, 'order_vpn_package_api']);
     Route::get('/web_desigh', [WebDesignOrderController::class, 'order_web_design_api']);
     Route::get('/web_desigh_package', [WebDesignPackageOrderController::class, 'order_web_design_package_api']);
 });
@@ -70,7 +61,6 @@ Route::get('/contact', [FrontendController::class, 'contact'])->name('frontend.c
 Route::get('/our-process', [FrontendController::class, 'ourProcess'])->name('frontend.ourProcess');
 Route::redirect('/page/our-process', '/our-process', 301);
 Route::get('/page/{slug}', [FrontendController::class, 'customPage'])->name('frontend.page.show');
-Route::redirect('/vpn-package', '/')->name('frontend.vpnPackage');
 Route::redirect('/web-design-package', '/')->name('frontend.webDesignPackage');
 Route::get('/insights', [FrontendController::class, 'blogIndex'])->name('frontend.blog.index');
 Route::get('/projects', [FrontendController::class, 'projects'])->name('frontend.projects');
@@ -79,7 +69,7 @@ Route::get('/faqs', [FrontendController::class, 'faqs'])->name('frontend.faqs');
 Route::get('/insights/{slug}', [FrontendController::class, 'blogShow'])->name('frontend.blog.show');
 Route::get('/mobile-app-development', [FrontendController::class, 'mobileAppDevelopment'])->name('frontend.mobileAppDevelopment');
 Route::get('/web-design', [FrontendController::class, 'webDesign'])->name('frontend.webDesign');
-Route::get('/voip-hosting-domain', [FrontendController::class, 'voipHostingDomain'])->name('frontend.voipHostingDomain');
+Route::get('/cloud-api-automation', [FrontendController::class, 'cloudAutomation'])->name('frontend.cloudAutomation');
 Route::redirect('/hosting-package', '/')->name('frontend.hostingPackage');
 Route::get('/domain-search', [FrontendController::class, 'domainSearch'])->name('frontend.domainSearch');
 Route::post('/domain-search', [FrontendController::class, 'domainSearchPost'])->name('frontend.domainSearchPost');
@@ -91,10 +81,8 @@ Route::post('/graphic-design-order-store', [FrontendController::class, 'graphicD
 Route::post('/domain-order-store', [FrontendController::class, 'domainOrderStore'])->name('frontend.domainOrderStore');
 Route::post('/mobile-app-development/inquiry', [FrontendController::class, 'mobileAppInquiryStore'])->name('frontend.mobileApp.inquiry');
 Route::post('/web-design-order-store', [FrontendController::class, 'webDesignOrderStore'])->name('frontend.webDesignOrderStore');
-Route::post('/voip-hosting-domain-order-store', [FrontendController::class, 'voipHostingDomainOrderStore'])->name('frontend.voipHostingDomainOrderStore');
 Route::post('/hosting-package-order-store', [FrontendController::class, 'hostingPackageOrderStore'])->name('frontend.hostingPackageOrderStore');
 Route::post('/bulk-sms-package-order-store', [FrontendController::class, 'bulkSmsPackageOrderStore'])->name('frontend.bulkSmsPackageOrderStore');
-Route::post('/vpn-package-order-store', [FrontendController::class, 'vpnPackageOrderStore'])->name('frontend.vpnPackageOrderStore');
 Route::post('/web-design-package-order-store', [FrontendController::class, 'webDesignPackageOrderStore'])->name('frontend.webDesignPackageOrderStore');
 
 Route::post('/subscribe/store', [FrontendController::class, 'subscribeStore'])->name('frontend.subscribeStore');
@@ -105,11 +93,9 @@ Route::redirect('/contact-us', '/contact', 301)->name('frontend.contactUs');
 Route::redirect('/blogs', '/insights', 301)->name('frontend.blogs');
 Route::redirect('/demos', '/projects', 301)->name('frontend.demos');
 Route::redirect('/blog-detail/{slug}', '/insights/{slug}', 301)->name('frontend.blogDetail');
-Route::redirect('/voip-dialer', '/mobile-app-development', 301)->name('frontend.voipDialer');
 Route::redirect('/domain-Search', '/domain-search', 301);
 Route::redirect('/graphics-design', '/graphic-design', 301);
 Route::post('/contact-us-message-store', [FrontendController::class, 'contactMessageStore'])->name('frontend.contactUsMessageStore');
-Route::post('/voip-dialer-order-store', [FrontendController::class, 'mobileAppInquiryStore'])->name('frontend.voipDialerOrderStore');
 Route::get('/backend' , function(){
     return redirect()->route('dashboard');
 });
@@ -117,13 +103,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/backend/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/graphic-design-status-change', [DashboardController::class, 'graphicDesignStatusChange'])->name('graphicDesignStatusChange');
     Route::post('/hosting-order-status-change', [DashboardController::class, 'hostingOrderStatusChange'])->name('hostingOrderStatusChange');
-    Route::post('/vpn-package-order-status-change', [DashboardController::class, 'vpnPackageOrderStatusChange'])->name('vpnPackageOrderStatusChange');
     Route::post('/web-design-package-order-status-change', [DashboardController::class, 'webDesignPackageOrderStatusChange'])->name('webDesignPackageOrderStatusChange');
     Route::post('/domain-order-status-change', [DashboardController::class, 'domainOrderStatusChange'])->name('domainOrderStatusChange');
     Route::post('/bulk-sms-order-status-change', [DashboardController::class, 'bulkSmsOrderStatusChange'])->name('bulkSmsOrderStatusChange');
-    Route::post('/voip-dialer-order-status-change', [DashboardController::class, 'voipDialerOrderStatusChange'])->name('voipDialerOrderStatusChange');
     Route::post('/web-design-order-status-change', [DashboardController::class, 'webDesignOrderStatusChange'])->name('webDesignOrderStatusChange');
-    Route::post('/voip-hosting-domain-order-status-change', [DashboardController::class, 'voipHostingDomainOrderStatusChange'])->name('voipHostingDomainOrderStatusChange');
 
     Route::post('/backend/general-static-option-update', [SettingController::class, 'generalStaticUpdate'])->name('backend.generalStaticUpdate');
     Route::post('/backend/logo-and-image-static-option-update', [SettingController::class, 'logoAndImageStaticUpdate'])->name('backend.logoAndImageStaticUpdate');
@@ -139,12 +122,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/backend/social-static-otion-form', [SettingController::class, 'socialStaticOptionForm'])->name('backend.socialStaticOptionForm');
     Route::get('/backend/counter-static-otion-form', [SettingController::class, 'counterStaticOptionForm'])->name('backend.counterStaticOptionForm');
 
-    Route::resource('/vpnPackage', VpnPackageController::class);
     Route::resource('/webDesignPackage', WebDesignPackageController::class);
-    Route::resource('/voipDialer', VoipDialerController::class);
     Route::resource('/webDesign', WebDesignController::class);
-    Route::resource('/voipHostingDomainOrder', VoipHostingDomainOrderController::class);
-    Route::resource('/voipHostingDomain', VoipHostingDomainController::class);
     Route::resource('/websiteClient', WebsiteClientController::class);
     Route::get('/media-library', [MediaManagerController::class, 'index'])->name('media.index');
     Route::get('/media-library/files', [MediaManagerController::class, 'library'])->name('media.library');
@@ -159,8 +138,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/bulkSms', BulkSmsController::class);
     Route::resource('/hostingPackage', HostingPackageController::class);
     Route::resource('/hostingPackageOrder', HostingPackageOrderController::class);
-    Route::resource('/voipDialerOrder', VoipDialerOrderController::class);
-    Route::resource('/vpnPackageOrder', VpnPackageOrderController::class);
     Route::resource('/webDesignPackageOrder', WebDesignPackageOrderController::class);
     Route::resource('/bulkSmsOrder', BulkSmsOrderController::class);
     Route::resource('/domainOrder', DomainOrderController::class);

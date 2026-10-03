@@ -5,9 +5,6 @@ use App\Models\DomainOrder;
 use App\Models\GraphicOrder;
 use App\Models\HostingPackageOrder;
 use App\Models\StaticOption;
-use App\Models\VoipDialerOrder;
-use App\Models\VoipHostingDomainOrder;
-use App\Models\VpnPackageOrder;
 use App\Models\WebDesignOrder;
 use App\Models\WebDesignPackageOrder;
 use Illuminate\Support\Facades\Cache;
@@ -244,20 +241,8 @@ if (!function_exists('random_code')){
         return HostingPackageOrder::where('is_process_complete', false)->count();
     }
 
-    function incomplete_voip_dialer_order(){
-        return VoipDialerOrder::where('is_process_complete', false)->count();
-    }
-
     function incomplete_web_design_order(){
         return WebDesignOrder::where('is_process_complete', false)->count();
-    }
-
-    function incomplete_voip_hosting_domain_order(){
-        return VoipHostingDomainOrder::where('is_process_complete', false)->count();
-    }
-
-    function incomplete_vpn_package_order(){
-        return VpnPackageOrder::where('is_process_complete', false)->count();
     }
 
     function incomplete_web_design_package_order(){
@@ -273,7 +258,7 @@ if (!function_exists('random_code')){
     }
 
     function incomplete_total_order(){
-        return incomplete_domain_order()+incomplete_bulk_sms_order()+incomplete_vpn_package_order()+incomplete_voip_dialer_order()+incomplete_hosting_order()+incomplete_graphic_order()+incomplete_voip_hosting_domain_order()+incomplete_web_design_order()+incomplete_web_design_package_order();
+        return incomplete_domain_order()+incomplete_bulk_sms_order()+incomplete_hosting_order()+incomplete_graphic_order()+incomplete_web_design_order()+incomplete_web_design_package_order();
     }
 
     function  get_client_device(){

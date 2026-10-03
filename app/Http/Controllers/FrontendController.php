@@ -15,12 +15,6 @@ use App\Models\HomeContent;
 use App\Models\HostingPackage;
 use App\Models\HostingPackageOrder;
 use App\Models\Testimonial;
-use App\Models\VoipDialer;
-use App\Models\VoipDialerOrder;
-use App\Models\VoipHostingDomain;
-use App\Models\VoipHostingDomainOrder;
-use App\Models\VpnPackage;
-use App\Models\VpnPackageOrder;
 use App\Models\WebDesign;
 use App\Models\WebDesignOrder;
 use App\Models\WebDesignPackage;
@@ -85,12 +79,6 @@ class FrontendController extends Controller
         return view('frontend.testimonials', compact('testimonials'));
     }
 
-    //vpn Package
-    public function vpnPackage(){
-        $website_vpn_packages = VpnPackage::all();
-        return view('frontend.vpn-package', compact('website_vpn_packages'));
-    }
-
     // web Design Package
     public function webDesignPackage(){
         $website_web_design_packages = WebDesignPackage::all();
@@ -98,20 +86,16 @@ class FrontendController extends Controller
     }
 
     public function mobileAppDevelopment(){
-        $website_voip_dialers = VoipDialer::all();
-        return view('frontend.mobile-app-development', compact('website_voip_dialers'));
+        return view('frontend.mobile-app-development');
     }
 
-    //voip Dialer
     public function webDesign(){
         $website_web_designs = WebDesign::all();
         return view('frontend.web-design', compact('website_web_designs'));
     }
 
-    //voip Hosting Domain
-    public function voipHostingDomain(){
-        $voip_hosting_domains = VoipHostingDomain::all();
-        return view('frontend.voip-hosting-domain', compact('voip_hosting_domains'));
+    public function cloudAutomation(){
+        return view('frontend.cloud-api-automation');
     }
 
 
@@ -163,7 +147,6 @@ class FrontendController extends Controller
         $bulk_sms_packages = BulkSms::all();
         return view('frontend.bulk-sms-package', compact('bulk_sms_packages'));
     }
-    //vpn Package
     public function graphicDesign(){
         $website_graphics = WebsiteGraphic::all();
         return view('frontend.graphic-design', compact('website_graphics'));
@@ -259,7 +242,7 @@ class FrontendController extends Controller
             'phone'   => 'required|string',
             'message'   =>  'required|string',
         ]);
-        $order = new VoipDialerOrder();
+        $order = new WebsiteMessage();
         $order->name   = $request->name;
         $order->email   = $request->email;
         $order->phone = $request->phone;
@@ -296,29 +279,6 @@ class FrontendController extends Controller
             return back()->withErrors('Something going wrong. '.$exception->getMessage());
         }
     }
-    // voip Hosting Domain Order Store
-    public function voipHostingDomainOrderStore(Request $request){
-        $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|string',
-            'phone'   => 'required|string',
-            'message'   =>  'required|string',
-        ]);
-        $order = new VoipHostingDomainOrder();
-        $order->name   = $request->name;
-        $order->email   = $request->email;
-        $order->phone = $request->phone;
-        $order->message = $request->message;
-
-        try {
-            $order->save();
-            return back()->withSuccess('Thank you for message us ! We will contact with you as soon as possible !');
-
-        }catch (\Exception $exception){
-            return back()->withErrors('Something going wrong. '.$exception->getMessage());
-        }
-    }
-
     // hosting Package Order Store
     public function hostingPackageOrderStore(Request $request){
         $request->validate([
@@ -376,35 +336,6 @@ class FrontendController extends Controller
                 'message' => 'Something went wrong.. !'.$exception->getMessage(),
             ]);
 
-        }
-    }
-
-    // vpn Package Order Store
-    public function vpnPackageOrderStore(Request $request){
-        $request->validate([
-            'name' => 'required|string',
-            'package' => 'required|exists:vpn_packages,id',
-            'email' => 'required|string',
-            'phone'   => 'required|string',
-            'message'   =>  'required|string',
-        ]);
-        $order = new VpnPackageOrder();
-        $order->name   = $request->name;
-        $order->email   = $request->email;
-        $order->phone = $request->phone;
-        $order->message = $request->message;
-        $order->package_id = $request->package;
-        try {
-            $order->save();
-            return response()->json([
-                'type' => 'success',
-                'message' => 'Thank you for message us ! We will contact with you as soon as possible !',
-            ]);
-        }catch (\Exception $exception){
-            return response()->json([
-                'type' => 'error',
-                'message' => 'Something went wrong.. !'.$exception->getMessage(),
-            ]);
         }
     }
 

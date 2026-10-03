@@ -51,9 +51,6 @@
                         <li><a href="{{ route('graphicOrder.index') }}"><i class="mdi mdi-circle"></i>Graphic Order <span class="badge badge-danger">{{ incomplete_graphic_order() }}</span></a></li>
                         <li><a href="{{ route('webDesignOrder.index') }}"><i class="mdi mdi-circle"></i>Web Design Order <span class="badge badge-danger">{{ incomplete_web_design_order() }}</span></a></li>
                         <li><a href="{{ route('hostingPackageOrder.index') }}"><i class="mdi mdi-circle"></i>Hosting Order <span class="badge badge-danger">{{ incomplete_hosting_order() }}</span></a></li>
-                        <li><a href="{{ route('voipDialerOrder.index') }}"><i class="mdi mdi-circle"></i>Voip Dialer Order <span class="badge badge-danger">{{ incomplete_voip_dialer_order() }}</span></a></li>
-                        <li><a href="{{ route('voipHostingDomainOrder.index') }}"><i class="mdi mdi-circle"></i>Voip Hosting Domain Order <span class="badge badge-danger">{{ incomplete_voip_hosting_domain_order() }}</span></a></li>
-                        <li><a href="{{ route('vpnPackageOrder.index') }}"><i class="mdi mdi-circle"></i>Vpn Package Order <span class="badge badge-danger">{{ incomplete_vpn_package_order() }}</span></a></li>
                         <li><a href="{{ route('webDesignPackageOrder.index') }}"><i class="mdi mdi-circle"></i>Web Design Package Order <span class="badge badge-danger">{{ incomplete_web_design_package_order() }}</span></a></li>
                         <li><a href="{{ route('bulkSmsOrder.index') }}"><i class="mdi mdi-circle"></i>Bulk sms Order <span class="badge badge-danger">{{ incomplete_bulk_sms_order() }}</span></a></li>
                         <li><a href="{{ route('domainOrder.index') }}"><i class="mdi mdi-circle"></i>Domain Order <span class="badge badge-danger">{{ incomplete_domain_order() }}</span></a></li>
@@ -172,17 +169,6 @@
                     <ul class="vertical-submenu">
                         <li>
                             <a href="javaScript:void();">
-                                <span>VPN Package</span><i class="feather icon-chevron-right pull-right"></i>
-                            </a>
-                            <ul class="vertical-submenu">
-                                <li><a href="{{ route('vpnPackage.create') }}"><i class="mdi mdi-circle"></i>Create</a></li>
-                                <li><a href="{{ route('vpnPackage.index') }}"><i class="mdi mdi-circle"></i>VPN package list</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul class="vertical-submenu">
-                        <li>
-                            <a href="javaScript:void();">
                                 <span>Web design Package</span><i class="feather icon-chevron-right pull-right"></i>
                             </a>
                             <ul class="vertical-submenu">
@@ -216,15 +202,6 @@
                 </li>
                 <li>
                     <a href="javaScript:void();">
-                        <img src="{{ asset('assets/panel/vertical/images/svg-icon/layouts.svg') }}" class="img-fluid" alt="layouts"><span>VoIp Dialer</span><i class="feather icon-chevron-right pull-right"></i>
-                    </a>
-                    <ul class="vertical-submenu">
-                        <li><a href="{{ route('voipDialer.create') }}"><i class="mdi mdi-circle"></i>Create</a></li>
-                        <li><a href="{{ route('voipDialer.index') }}"><i class="mdi mdi-circle"></i>VoIp Dialer list</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javaScript:void();">
                         <img src="{{ asset('assets/panel/vertical/images/svg-icon/layouts.svg') }}" class="img-fluid" alt="layouts"><span>Web Design</span><i class="feather icon-chevron-right pull-right"></i>
                     </a>
                     <ul class="vertical-submenu">
@@ -239,15 +216,6 @@
                     <ul class="vertical-submenu">
                         <li><a href="{{ route('websiteGraphic.create') }}"><i class="mdi mdi-circle"></i>Create</a></li>
                         <li><a href="{{ route('websiteGraphic.index') }}"><i class="mdi mdi-circle"></i>Graphics list</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javaScript:void();">
-                        <img src="{{ asset('assets/panel/vertical/images/svg-icon/layouts.svg') }}" class="img-fluid" alt="layouts"><span>Voip Hosting Domain</span><i class="feather icon-chevron-right pull-right"></i>
-                    </a>
-                    <ul class="vertical-submenu">
-                        <li><a href="{{ route('voipHostingDomain.create') }}"><i class="mdi mdi-circle"></i>Create</a></li>
-                        <li><a href="{{ route('voipHostingDomain.index') }}"><i class="mdi mdi-circle"></i>Voip Hosting Domain list</a></li>
                     </ul>
                 </li>
                 <li>

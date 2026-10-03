@@ -189,7 +189,7 @@
                         <!-- MAIN HEADER MENU DROPDOWN ITEM -->
                         <li class="navigation-dropdown-item">
                             <!-- MAIN HEADER MENU DROPDOWN ITEM LINK -->
-                            <a class="navigation-dropdown-link" href="{{ route('frontend.voipHostingDomain') }}">
+                            <a class="navigation-dropdown-link" href="{{ route('frontend.cloudAutomation') }}">
                                 <svg class="crumina-icon" width="30" height="30">
                                 </svg>Cloud, API & Automation</a>
                             <!-- /MAIN HEADER MENU DROPDOWN ITEM LINK -->

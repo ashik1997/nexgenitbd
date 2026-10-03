@@ -15,9 +15,6 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call(StaticOptionSeeder::class);
-        $this->call(VpnPackageSeeder::class);
-        $this->call(VoipDialerSeeder::class);
-        $this->call(VoipDialerSeeder::class);
         $this->call(WebsiteClientSeeder::class);
         $this->call(WebsiteGraphicSeeder::class);
         $this->call(WebsiteBannerSeeder::class);
@@ -28,7 +25,6 @@ class DatabaseSeeder extends Seeder
         $this->call(FaqSeeder::class);
         $this->call(RoleAndPermissionSeeder::class);
         $this->call(UserSeeder::class);
-        $this->call(VoipHostingDomainSeeder::class);
         $this->call(TestimonialSeeder::class);
         $this->call(HomeContentSeeder::class);
         $this->call(WebDesignSeeder::class);

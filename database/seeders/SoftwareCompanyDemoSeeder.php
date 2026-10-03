@@ -149,20 +149,6 @@ class SoftwareCompanyDemoSeeder extends Seeder
             ['title' => 'Business Portal and Dashboard', 'description' => 'Powerful dashboards and portals that centralize data, streamline approvals, and improve team productivity.', 'image' => 'assets/frontend/img/services/api-integration.jpg', 'created_at' => $now, 'updated_at' => $now],
         ]);
 
-        DB::table('voip_dialers')->delete();
-        DB::table('voip_dialers')->insert([
-            ['title' => 'Mobile App Development', 'description' => 'User-friendly Android and iOS applications built for performance, reliability, and long-term maintainability.', 'image' => 'assets/frontend/img/services/mobile-app.jpg', 'created_at' => $now, 'updated_at' => $now],
-            ['title' => 'Cross-Platform Applications', 'description' => 'Efficient cross-platform apps that deliver a consistent experience across devices while reducing development time.', 'image' => 'assets/frontend/img/services/mobile-app.jpg', 'created_at' => $now, 'updated_at' => $now],
-            ['title' => 'App Maintenance and Optimization', 'description' => 'Performance tuning, feature upgrades, security updates, and dependable support for existing mobile products.', 'image' => 'assets/frontend/img/services/software-consultation.jpg', 'created_at' => $now, 'updated_at' => $now],
-        ]);
-
-        DB::table('voip_hosting_domains')->delete();
-        DB::table('voip_hosting_domains')->insert([
-            ['title' => 'Cloud Infrastructure and DevOps', 'description' => 'Reliable cloud environments, CI/CD pipelines, monitoring, and deployment automation.', 'benefit' => 'Ship updates faster, improve uptime, and scale infrastructure with confidence.', 'image' => 'assets/frontend/img/services/cloud-devops.jpg', 'benefit_image' => 'assets/frontend/img/services/cloud-devops.jpg', 'created_at' => $now, 'updated_at' => $now],
-            ['title' => 'API and System Integration', 'description' => 'Connect your CRM, ERP, payment gateway, mobile app, and third-party platforms through secure APIs.', 'benefit' => 'Eliminate duplicate data entry and create a smooth flow of information across your business.', 'image' => 'assets/frontend/img/services/api-integration.jpg', 'benefit_image' => 'assets/frontend/img/services/api-integration.jpg', 'created_at' => $now, 'updated_at' => $now],
-            ['title' => 'Workflow Automation', 'description' => 'Automate repetitive processes, notifications, reporting, and approvals with dependable software workflows.', 'benefit' => 'Reduce manual work, improve accuracy, and give your team more time for high-value tasks.', 'image' => 'assets/frontend/img/services/software-consultation.jpg', 'benefit_image' => 'assets/frontend/img/services/software-consultation.jpg', 'created_at' => $now, 'updated_at' => $now],
-        ]);
-
         DB::table('faqs')->delete();
         DB::table('faqs')->insert([
             ['question' => 'What types of software do you build?', 'answer' => 'We build business websites, custom web applications, SaaS products, mobile apps, dashboards, APIs, automation tools, and cloud-based systems.', 'created_at' => $now, 'updated_at' => $now],
