@@ -26,18 +26,18 @@ class StaticOptionSeeder extends Seeder
         set_static_option('counter_project', '230+');
         set_static_option('counter_client', '6815+');
 
-        set_static_option('company_email', 'company@gmail.com');
-        set_static_option('company_phone', '01234567890');
+        set_static_option('company_email', 'nexgenitltd@gmail.com');
+        set_static_option('company_phone', '01731002123');
         set_static_option('company_address', 'company---adddress');
         set_static_option('company_short_description', 'company---short---desc');
         set_static_option('company_office_hour', 'Mon. - Fri. 10:00 - 21:00');
 
-        set_static_option('company_facebook_link', 'https://www.facebook.com/');
-        set_static_option('company_twitter_link', 'https://twitter.com/');
-        set_static_option('company_youtube_link', 'https://www.youtube.com/');
-        set_static_option('company_instagram_link', 'https://www.instagram.com/');
-        set_static_option('company_linkedin_link', 'https://www.linkedin.com/');
-        set_static_option('company_whatsapp_link', 'https://www.whatsapp.com/');
+        set_static_option('company_facebook_link', 'https://www.facebook.com/nexgenitltd');
+        set_static_option('company_twitter_link', 'https://twitter.com/nexgenitltd');
+        set_static_option('company_youtube_link', 'https://www.youtube.com/nexgenitltd');
+        set_static_option('company_instagram_link', 'https://www.instagram.com/nexgenitltd');
+        set_static_option('company_linkedin_link', 'https://www.linkedin.com/company/nexgenitltd');
+        set_static_option('company_whatsapp_link', 'https://www.whatsapp.com/001731002123');
 
         set_static_option('font_style', null);
         set_static_option('bg_success', null);
